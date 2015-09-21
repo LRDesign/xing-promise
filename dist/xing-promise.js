@@ -1,4 +1,4 @@
-import {Factory} from "a1atscript";
+import {AsModule, Factory} from "a1atscript";
 
 class XingPromise {
 

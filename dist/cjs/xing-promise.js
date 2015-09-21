@@ -62,7 +62,7 @@ var XingPromiseFactory = (function () {
 
   _createDecoratedClass(XingPromiseFactory, null, [{
     key: 'factory',
-    decorators: [(0, _a1atscript.Factory)('XingPromise', ['$q']), AsModule('XingPromise')],
+    decorators: [(0, _a1atscript.Factory)('XingPromise', ['$q']), (0, _a1atscript.AsModule)('XingPromise')],
     value: function factory($q) {
       XingPromiseFactory.$q = $q;
       return XingPromise;

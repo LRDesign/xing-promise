@@ -1680,7 +1680,9 @@ define('xing-promise',["a1atscript"], function($__0) {
   "use strict";
   if (!$__0 || !$__0.__esModule)
     $__0 = {default: $__0};
-  var Factory = $__0.Factory;
+  var $__1 = $__0,
+      AsModule = $__1.AsModule,
+      Factory = $__1.Factory;
   var XingPromise = function XingPromise(resolver) {
     this.internalPromise = XingPromiseFactory.$q(resolver);
   };
