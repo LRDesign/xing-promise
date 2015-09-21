@@ -14,6 +14,28 @@ var _a1atscript = require("a1atscript");
 
 var XingPromise = (function () {
   _createClass(XingPromise, null, [{
+    key: 'all',
+    value: function all(promises) {
+      var _this = this;
+
+      return new XingPromise(function (res, rej) {
+        var remaining = promises.length;
+        var arrayResults = [];
+        promises.forEach(function (promise, index) {
+
+          _this.resolve(promise).then(function (results) {
+            remaining -= 1;
+            arrayResults[index] = results;
+            if (remaining == 0) {
+              res(arrayResults);
+            }
+          })['catch'](function (error) {
+            rej(error);
+          });
+        });
+      });
+    }
+  }, {
     key: 'resolve',
     value: function resolve(value) {
       return new XingPromise(function (res, rej) {

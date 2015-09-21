@@ -1698,6 +1698,24 @@ define('xing-promise',["a1atscript"], function($__0) {
       return this.internalPromise.finally(callback, progressBack);
     }
   }, {
+    all: function(promises) {
+      var $__2 = this;
+      return new $XingPromise((function(res, rej) {
+        var remaining = promises.length;
+        var arrayResults = [];
+        promises.forEach((function(promise, index) {
+          $__2.resolve(promise).then((function(results) {
+            remaining -= 1;
+            arrayResults[index] = results;
+            if (remaining == 0) {
+              res(arrayResults);
+            }
+          })).catch((function(error) {
+            rej(error);
+          }));
+        }));
+      }));
+    },
     resolve: function(value) {
       return new $XingPromise((function(res, rej) {
         return res(value);

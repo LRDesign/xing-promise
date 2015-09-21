@@ -68,4 +68,41 @@ describe("Xing Promise", function() {
       expect(finalResults).toEqual("Fail");
     });
   });
+
+  describe("all", function() {
+
+    describe("on success", function() {
+      beforeEach(function(done) {
+        var promise1 = XingPromise.resolve("awesome");
+        var promise2 = new XingPromise((res, rej) => res("cheese"));
+        var nonPromise3 = "basketball";
+        xingPromise = XingPromise.all([promise1, promise2, nonPromise3]).then((results) => {
+          finalResults = results;
+          done();
+        });
+      });
+
+      it("should resolve", function() {
+        expect(finalResults).toEqual(["awesome", "cheese", "basketball"])
+      });
+
+    });
+
+    describe("on reject", function() {
+      beforeEach(function(done) {
+        var promise1 = XingPromise.resolve("awesome");
+        var promise2 = XingPromise.reject("Fail One Promise");
+        var nonPromise3 = "basketball";
+        xingPromise = XingPromise.all([promise1, promise2, nonPromise3]).catch((results) => {
+          finalResults = results;
+          done();
+        });
+      });
+
+      it("should reject immediately when one promise fails", function() {
+        expect(finalResults).toEqual("Fail One Promise")
+      });
+
+    });
+  });
 });
