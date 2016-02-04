@@ -1,15 +1,15 @@
 {
   "name": "xing-promise",
   "private": false,
-  "version": "0.0.2",
+  "version": "1.0.0-beta",
   "description": "An ES6 Promise Interface that use's Angular's $q under the hood",
-  "homepage": "https://github.com/LRDesign/xing-promise",
+  "homepage": "https://github.com/XingFramework/xing-promise",
   "repository": {
     "type": "git",
-    "url": "git://github.com/LRDesign/xing-promise.git"
+    "url": "git://github.com/XingFramework/xing-promise.git"
   },
   "bugs": {
-    "url": "https://github.com/LRDesign/xing-promise/issues"
+    "url": "https://github.com/XingFramework/xing-promise/issues"
   },
   "main": "dist/xing-promise.js",
   "dependencies": {
@@ -37,7 +37,7 @@
     "karma-requirejs": "^0.2.2",
     "karma-traceur-preprocessor": "^0.4.0",
     "requirejs": "^2.1.15",
-    "xing-traceur": "0.0.6"
+    "xing-traceur": "1.0.0-beta"
   },
   "scripts": {
     "test": "./node_modules/.bin/gulp test:firefox; ./node_modules/.bin/karma start karma.conf.babel.js --browsers Firefox --single-run",
